@@ -6,7 +6,7 @@
     <title>Happy Birthday!</title>
     <style>
         body { 
-            font-family: 'Comic Sans MS', cursive, sans-serif; 
+            font-family: 'Georgia', serif; 
             background: linear-gradient(to bottom, #ffe4e1, #f0f8ff); 
             background-image: url('https://via.placeholder.com/1920x1080?text=Birthday+Confetti'); 
             background-size: cover; 
@@ -17,25 +17,25 @@
         }
         header { 
             padding: 20px; 
-            background-color: rgba(255, 255, 255, 0.8); 
-            border-radius: 10px; 
+            background-color: rgba(255, 255, 255, 0.85); 
+            border-radius: 12px; 
             box-shadow: 0 0 10px rgba(0,0,0,0.1); 
             margin-bottom: 20px; 
         }
         section { 
             margin: 20px auto; 
-            padding: 20px; 
+            padding: 25px; 
             background-color: rgba(255, 255, 255, 0.9); 
-            border-radius: 10px; 
+            border-radius: 12px; 
             box-shadow: 0 0 10px rgba(0,0,0,0.1); 
             max-width: 800px; 
         }
         .birthday-note { 
-            font-size: 1.2em; 
-            line-height: 1.6; 
+            font-size: 1.15em; 
+            line-height: 1.7; 
             background-color: #fffacd; 
-            padding: 20px; 
-            border-radius: 10px; 
+            padding: 25px; 
+            border-radius: 12px; 
             border: 2px solid #ff69b4; 
         }
         .balloons { 
@@ -46,90 +46,37 @@
             0%, 100% { transform: translateY(0px); } 
             50% { transform: translateY(-10px); } 
         }
-        form { display: flex; flex-direction: column; }
-        input, textarea { margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-        button { padding: 10px; background-color: #ff69b4; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #ff1493; }
-        #messages { list-style: none; padding: 0; }
-        #messages li { background-color: #f9f9f9; margin: 10px 0; padding: 10px; border-radius: 5px; }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>🎉 Happy Birthday, [Shanaya]! 🎂</h1>
+        <h1>🎉 Happy Birthday, Shanaya 🎂</h1>
         <p class="balloons">🎈🎈🎈</p>
-        <p>A special little site just for you. Hope it brings a smile! 💕</p>
+        <p>A small space made just for you. I hope it makes you smile 🤍</p>
     </header>
 
     <section class="birthday-note">
-        <h2>Your Birthday Note</h2>
+        <h2>For You</h2>
         <p>Happy Birthday 🤍</p>
-        <p>I just wanted to write this properly instead of rushing a message. Yesterday, I made the edit and played the guitar simply because I wanted to do something meaningful for your birthday.</p>
-        <p>This letter isn’t meant to create pressure or expectations. I just genuinely appreciate you and the place you have in my life, whatever that may be.</p>
-        <p>I hope this year brings you peace, happiness, and moments that make you smile without even trying.</p>
-        <p>Thank you for being you, and happy birthday once again 🌸</p>
+        <p>
+            I just wanted to write this properly instead of rushing a message.
+            Yesterday, I made the edit and played the guitar simply because I wanted
+            to do something meaningful for your birthday.
+        </p>
+        <p>
+            This letter isn’t meant to create pressure or expectations.
+            I just genuinely appreciate you and the place you have in my life,
+            whatever that may be.
+        </p>
+        <p>
+            I hope this year brings you peace, happiness,
+            and moments that make you smile without even trying.
+        </p>
+        <p>
+            Thank you for being you, and happy birthday once again 🌸
+        </p>
     </section>
 
-    <section id="memories">
-        <h2>Birthday Memories</h2>
-        <p>Let's add some fun birthday vibes! Share a photo or memory below.</p>
-        <!-- Add images or text here -->
-        <img src="https://via.placeholder.com/300x200?text=Birthday+Cake" alt="Birthday Cake" style="max-width: 100%; border-radius: 10px;">
-        <p>Remember our chats? Or that birthday wish I sent? Let's make more memories! 🎁</p>
-    </section>
-
-    <section id="share-feelings">
-        <h2>Share Your Thoughts</h2>
-        <p>Whatever's on your mind today—good or bad—I'm here. Drop a message!</p>
-        <form id="feelingForm">
-            <input type="text" id="name" placeholder="Your Name (optional)" required>
-            <textarea id="message" placeholder="What's on your mind?" rows="4" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <section id="message-board">
-        <h2>Our Messages</h2>
-        <ul id="messages"></ul>
-    </section>
-
-    <script>
-        // Simple message storage (localStorage for demo; replace with backend for persistence)
-        const messagesList = document.getElementById('messages');
-        const feelingForm = document.getElementById('feelingForm');
-
-        // Load existing messages
-        const loadMessages = () => {
-            const messages = JSON.parse(localStorage.getItem('messages')) || [];
-            messages.forEach(msg => addMessageToList(msg.name, msg.text));
-        };
-
-        // Add message to list
-        const addMessageToList = (name, text) => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${name}:</strong> ${text}`;
-            messagesList.appendChild(li);
-        };
-
-        // Handle form submit
-        feelingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const message = document.getElementById('message').value;
-            addMessageToList(name, message);
-            
-            // Save to localStorage
-            const messages = JSON.parse(localStorage.getItem('messages')) || [];
-            messages.push({ name, text: message });
-            localStorage.setItem('messages', JSON.stringify(messages));
-            
-            // Clear form
-            feelingForm.reset();
-            alert('Message sent! Thanks for sharing.');
-        });
-
-        // Load on page load
-        loadMessages();
-    </script>
 </body>
 </html>
