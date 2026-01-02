@@ -4,48 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday</title>
+
     <style>
-        body { 
-            font-family: 'Georgia', serif; 
-            background: linear-gradient(to bottom, #ffe4e1, #f0f8ff); 
-            background-image: url('https://via.placeholder.com/1920x1080?text=Birthday+Confetti'); 
-            background-size: cover; 
-            color: #333; 
-            margin: 0; 
-            padding: 20px; 
-            text-align: center; 
+        /* ===== Background Animation ===== */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+
+            background: linear-gradient(-45deg, #ffe4e1, #f0f8ff, #fdeff9, #e8f0ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
-        header { 
-            padding: 20px; 
-            background-color: rgba(255, 255, 255, 0.85); 
-            border-radius: 12px; 
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-            margin-bottom: 20px; 
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        section { 
-            margin: 20px auto; 
-            padding: 25px; 
-            background-color: rgba(255, 255, 255, 0.9); 
-            border-radius: 12px; 
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-            max-width: 800px; 
+
+        /* ===== Floating Hearts ===== */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
         }
-        .birthday-note { 
-            font-size: 1.15em; 
-            line-height: 1.7; 
-            background-color: #fffacd; 
-            padding: 25px; 
-            border-radius: 12px; 
-            border: 2px solid #ff69b4; 
+
+        .hearts span {
+            position: absolute;
+            display: block;
+            color: rgba(255, 105, 180, 0.35);
+            font-size: 20px;
+            animation: floatHearts 12s linear infinite;
+            bottom: -50px;
         }
-        .balloons { 
-            animation: float 3s ease-in-out infinite; 
-            font-size: 2em; 
+
+        @keyframes floatHearts {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
         }
-        @keyframes float { 
-            0%, 100% { transform: translateY(0px); } 
-            50% { transform: translateY(-10px); } 
+
+        /* ===== Content Styling ===== */
+        header, section {
+            position: relative;
+            z-index: 1;
         }
+
+        header {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.88);
+            border-radius: 14px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 14px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            max-width: 800px;
+        }
+
+        .birthday-note {
+            font-size: 1.15em;
+            line-height: 1.7;
+            background-color: #fffacd;
+            padding: 25px;
+            border-radius: 14px;
+            border: 2px solid #ff69b4;
+        }
+
+        .balloons {
+            font-size: 2em;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         audio {
             width: 100%;
             max-width: 400px;
@@ -54,6 +102,16 @@
     </style>
 </head>
 <body>
+
+    <!-- Floating Hearts -->
+    <div class="hearts">
+        <span style="left: 10%; animation-delay: 0s;">❤</span>
+        <span style="left: 25%; animation-delay: 3s;">❤</span>
+        <span style="left: 40%; animation-delay: 6s;">❤</span>
+        <span style="left: 60%; animation-delay: 1s;">❤</span>
+        <span style="left: 75%; animation-delay: 4s;">❤</span>
+        <span style="left: 90%; animation-delay: 2s;">❤</span>
+    </div>
 
     <header>
         <h1>🎉 Happy Birthday, Shanaya 🎂</h1>
@@ -68,7 +126,6 @@
         </p>
         <audio controls>
             <source src="song.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
         </audio>
     </section>
 
