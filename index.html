@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <title>Happy Birthday</title>
     <style>
         body { 
             font-family: 'Georgia', serif; 
@@ -46,6 +46,11 @@
             0%, 100% { transform: translateY(0px); } 
             50% { transform: translateY(-10px); } 
         }
+        audio {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +60,17 @@
         <p class="balloons">🎈🎈🎈</p>
         <p>A small space made just for you. I hope it makes you smile 🤍</p>
     </header>
+
+    <section>
+        <p style="font-size: 1.1em; margin-bottom: 10px;">
+            A song that felt right for this moment 🤍  
+            <br><small>(only if you feel like listening)</small>
+        </p>
+        <audio controls>
+            <source src="song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </section>
 
     <section class="birthday-note">
         <h2>For You</h2>
